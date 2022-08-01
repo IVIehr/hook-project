@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 
 function TodoForm({onSubmit, edit}) {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState(edit ? edit.value : '');
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -24,16 +24,33 @@ function TodoForm({onSubmit, edit}) {
 
   return (
     <form className='todo-form' onSubmit={handleSubmit}>
-      <input
-        className='todo-input'
-        ref={inputRef}
-        type="text"
-        name="text"
-        placeholder='Add a todo'
-        value={input}
-        onChange={handleChange}
-      ></input>
-      <button className='todo-button'>Add todo</button>
+      {edit
+        ?
+        <>
+          <input
+          className='todo-input edit'
+          ref={inputRef}
+          type="text"
+          name="text"
+          placeholder='Update your item'
+          value={input}
+          onChange={handleChange}
+        ></input>
+        <button className='todo-button edit'>Update</button>
+        </>
+        :
+        <>
+            <input
+          className='todo-input'
+          ref={inputRef}
+          type="text"
+          name="text"
+          placeholder='Add a todo'
+          value={input}
+          onChange={handleChange}
+        ></input>
+        <button className='todo-button'>Add todo</button>
+      </>}
     </form>
   )
 }
