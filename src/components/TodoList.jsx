@@ -37,7 +37,6 @@ function TodoList() {
             return todo;
         });
         setTodos(updateTodos);
-        console.log(...todos);
     };
 
     return (

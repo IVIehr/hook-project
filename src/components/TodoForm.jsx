@@ -19,7 +19,7 @@ function TodoForm({onSubmit, edit}) {
       id: Math.floor(Math.random() * 10000),
       text: input,
       isComplete:false
-    });
+    }, setInput(''));
   }
 
   return (
