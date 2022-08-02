@@ -13,6 +13,7 @@ function TodoForm({onSubmit, edit}) {
   }
 
   const handleSubmit = e => {
+    // prevent the default action => disapearing the components after submitting the form
     e.preventDefault();
 
     onSubmit({
@@ -40,7 +41,7 @@ function TodoForm({onSubmit, edit}) {
         </>
         :
         <>
-            <input
+          <input
           className='todo-input'
           ref={inputRef}
           type="text"
