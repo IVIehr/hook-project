@@ -6,7 +6,7 @@ function TodoList() {
     const [todos, setTodos] = useState([]);
 
     const addTodo = todo => {
-        // Ignore the free text
+        // Ignore the free space
         if (!todo.text || /^\s*$/.test(todo.text)) {
             return
         }
@@ -20,6 +20,7 @@ function TodoList() {
             return
         }
 
+        // Previous todos
         setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
     };
 
@@ -41,7 +42,7 @@ function TodoList() {
 
     return (
         <>
-            <h1>Whats the plan for today?</h1>
+            <h1>What's the plan for today?</h1>
             <TodoForm onSubmit={addTodo} />
             <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} updateTodo={updateTodo} />
         </>

@@ -32,7 +32,6 @@ function Todo({todos, completeTodo, removeTodo, updateTodo}) {
             <div className='icons'>
                 <RiCloseCircleLine
                     onClick={() => removeTodo(todo.id)}
-                    style = {{cursor: 'pointer'}}
                     className="delete-icon"
                 />
                 <TiEdit
